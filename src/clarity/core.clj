@@ -18,6 +18,7 @@
 (defroutes main-routes
   (GET "/blsoe/wages" [] blsoe/wages)
   (GET "/blsoe/workers" [] blsoe/workers)
+  (GET "/blsoe/autofill" [] blsoe/autofill)
   (route/resources "/")
   (route/not-found "Page not found"))
 

@@ -13,7 +13,7 @@
                                               com.sun.jdmk/jmxtools
                                               com.sun.jmx/jmxri]]
                  ;;[org.clojure/java.jdbc "0.2.1"]
-                 [korma "0.3.0-beta9"]]
+                 [korma "0.3.0-beta11"]]
   :dev-dependencies [[ring/ring-devel "1.1.0"]]
   :plugins [[lein-ring "0.6.6"]
             [lein-swank "1.4.4"]]

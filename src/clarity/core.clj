@@ -19,6 +19,7 @@
   (GET "/blsoe/wages" [] blsoe/wages)
   (GET "/blsoe/workers" [] blsoe/workers)
   (GET "/blsoe/autofill" [] blsoe/autofill)
+  (GET "/blsoe/stats" [] blsoe/stats)
   (route/resources "/")
   (route/not-found "Page not found"))
 

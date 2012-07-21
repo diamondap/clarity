@@ -33,10 +33,18 @@
 (def type-occupation 5)
 
 ;; These are the params we're expecting in the HTTP request
+;; industry_code and occupation_code are 6-digit strings
+;; area_code is a 7-digit string
+;; All zeros in any of these strings indicates the highest level
+;; of roll-up data-- i.e. all industries, all occupations,
+;; national level.
 (def param-config
      [{:name :term :type :string :default nil}
       {:name :type :type :int :default 0}
-      {:name :occupation_code :type :string :default "000000"}])
+      {:name :occupation_code :type :string :default "000000"}
+      {:name :industry_code :type :string :default "000000"}
+      {:name :sector_code :type :string :default "000000"}
+      {:name :area_code :type :string :default "000000"}])
 
 ;; Autofill query for location or occupation
 (def query-loc-occ
@@ -97,3 +105,23 @@
        (exec-raw [query-industry
                   [like-term (:occupation_code params)]] :results)
        (exec-raw [query-loc-occ [like-term (:type params)]] :results)))))
+
+(def query-occ-ind-stats
+     (str "select datatype_code, value "
+          "from bls_oe_data "
+          "where area_code = ? "
+          "and industry_code = ? "
+          "and occupation_code = ? "
+          "order by datatype_code;"))
+
+(defn stats
+  ""
+  [request]
+  (let [params (get-params request)]
+    (json/generate-string
+     (select current-data
+             (fields :datatype_code :value)
+             (where {:area_code (:area_code params)
+                     :industry_code (:industry_code params)
+                     :occupation_code (:occupation_code params)})
+             (order :datatype_code :ASC)))))

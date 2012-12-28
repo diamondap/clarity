@@ -1,12 +1,8 @@
 # clarity
 
-This is web application for querying freely available US Government data. The data is first collected into
-custom Postgres database using code in the related ic project. Once collected in the Postgres database, the
-data can be queried in ways that the government's open data APIs don't provide. Data from multiple data sets
-can be correlated, merged and cross-queried.
+This is web application for querying freely available US Government data. The data is first collected into custom Postgres database using code in the related ic project. Once collected in the Postgres database, the data can be queried in ways that the government's open data APIs don't provide. Data from multiple data sets can be correlated, merged and cross-queried.
 
-So far, only data from the US Bureau of Labor Statistics is available, along with a minimum set of pre-defined 
-queries.
+So far, only data from the US Bureau of Labor Statistics is available, along with a minimum set of pre-defined queries.
 
 You'll need the data from the ic project to make this work. The ic project is at https://github.com/diamondap/ic
 

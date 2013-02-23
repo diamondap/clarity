@@ -1,5 +1,6 @@
 (ns clarity.util
   (:use [clojure.string :only [blank?]])
+  (:require [cheshire.core :as json])
   (:import
    (org.joda.time DateTime Days Seconds DateTimeZone Period Interval Duration)
    (org.joda.time.format DateTimeFormat)
@@ -33,12 +34,14 @@
 (def yyyymmdd-dash "YYYY-MM-dd")
 (def yyyymmdd-slash "YYYY/MM/dd")
 (def mmddyyyy-slash "MM/dd/YYYY")
+
 (def re-db-datetime
      (re-pattern
       "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$"))
 (def re-yyyymmdd-dash #"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
 (def re-yyyymmdd-slash #"^[0-9]{4}/[0-9]{2}/[0-9]{2}$")
 (def re-mmddyyyy-slash #"^[0-9]{2}/[0-9]{2}/[0-9]{4}$")
+
 
 (defn guess-dt-format [dt-str]
   "Tries to figure out the format of a datetime string. Returns the format,
@@ -51,6 +54,7 @@
      (re-find re-yyyymmdd-slash dt-str) yyyymmdd-slash
      (re-find re-mmddyyyy-slash dt-str) mmddyyyy-slash
      :else nil)))
+
 
 (defn datetime-str
   "Returns a timestamp in the form of a string with the specified pattern."
@@ -82,6 +86,7 @@
 ;; ---------------------------------------------------------------------------
 ;; Query Param Utilities
 ;; ---------------------------------------------------------------------------
+
 
 (defn date-param
   "Returns the value of the param with the specified key as a float,
@@ -124,3 +129,9 @@
         values (map #(get-param params (:name %1) (:type %1) (:default %1))
                     config)]
     (zipmap param-names values)))
+
+
+(defn dump-request
+  "Dump the ring request hash back to the client."
+  [request]
+  (json/generate-string (dissoc request :body)))

@@ -1,0 +1,308 @@
+﻿/* ============ Layout =============== */
+#container
+{
+    margin: auto;   
+}
+
+/* ============ Filters =============== */
+#filters-container
+{
+    margin-bottom: 25px;
+}
+
+
+#filters
+{
+    display: block;
+}
+
+
+#filter-commands
+{
+    display: block;
+    clear: both;
+    /* should use margin-top here, but Chrome screws up margin when element above appears/disappears */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#filter-commands-left
+{
+    float: left;
+}
+
+#filter-commands-right
+{
+    float: right;
+}
+
+#filter-commands-right button, #filter-commands-right input
+{
+    margin-left: 40px;
+}
+
+#filter-logic-string
+{
+    width: 433px;
+    display: none;
+    clear: none;
+}
+
+/* These items need a min height, or we won't be able
+   to drop things into them. */
+#available-output-columns, #selected-output-columns,
+#available-group-by-columns, #selected-group-by-columns,
+#available-sort-columns, #selected-sort-columns
+{
+    min-height: 40px;
+}
+
+.filter, .filter-column, .filter-op, .filter-value
+{
+    vertical-align: top;
+}
+
+.filter-number, .dummy-filter-number
+{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 3px;
+    font-size: 12pt;
+    width: 25px;
+}
+
+.is-any-of
+{
+    width: 210px;
+    height: 70px;
+    overflow: auto;
+    border: 1px solid #999;
+    padding: 4px 6px;
+    margin-bottom: 9px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.is-any-of input[type=checkbox]
+{
+    margin-right: 8px;
+    vertical-align: top;
+}
+
+.empty-control
+{
+    width: 210px;
+    padding: 4px 6px;
+    margin-bottom: 9px;
+    display: inline-block;
+}
+
+.filter-column, .filter-op, .filter-value
+{
+    display: inline-block;
+}
+
+.filter-add-button, .filter-remove-button
+{
+    float: right;
+    width: 110px;
+}
+
+#query-container
+{
+	width:100%; 
+	margin:auto; 
+	margin-bottom: 25px;
+}
+
+#filter-logic-string
+{
+    width: 433px; 
+    display: inline;
+}
+
+#query-type-container
+{
+    margin-bottom: 15px;
+}
+
+#crosstab-container
+{
+
+}
+
+#spinner
+{
+
+}
+
+#spinner img, #dbloading img
+{
+    margin-right: 30px;
+}
+
+input.arrow-button
+{
+	display: block;
+	width: 35px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+select.multi-select
+{
+	height: 160px;
+	width: 100%;
+}
+.output-select-controls
+{
+
+}
+.fl40
+{
+	float:left;
+	width:40%;
+}
+.fl10
+{
+	float:left;
+	width:10%;
+}
+
+
+.header-bar
+{
+	width:100%; 
+	clear:both; 
+	text-align: left; 
+	margin-bottom:15px;
+}
+.inline-form-element
+{
+	display:inline;
+	clear:none;
+	margin-left: 6px;
+	margin-right: 6px;
+	vertical-align: baseline;
+}
+
+#results-table
+{
+    width:100%;
+    height:400px;
+    margin-bottom: 30px;
+}
+
+#load-more-rows
+{
+    display: block;
+    float: right;
+    display: none;
+    margin-bottom: 30px;
+}
+
+.slick-cell.selected
+{
+    background-color: #FCF8E3; /* Same as Twitter Bootstrap warning */
+}
+.ui-widget-content.slick-row.odd
+{
+    background-color: #D9EDF7; /* Same as Twitter Bootstrap info */
+}
+.slick-cell
+{
+    background-color: inherit;
+}
+.clickable
+{
+    cursor: pointer;
+}
+#dialog-reload
+{
+    display: none;
+}
+#footer
+{
+    padding: 5px 10px 5px 10px;
+    width: 96%;
+    margin: auto;
+    margin-top: 30px;
+    border: 1px solid #999;
+    color: #999;
+    font-size: 9pt;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+#build-number
+{
+    text-align:center;
+}
+
+#dialog-save-query input[type=text], #dialog-save-query textarea
+{
+    width: 360px;
+}
+#dialog-save-query textarea
+{
+    height: 100px;
+}
+#dialog-save-query input[type=checkbox]
+{
+    vertical-align: top;
+}
+.saved-query-display
+{
+    margin-bottom: 15px;
+}
+.saved-query-run-link
+{
+    padding: 0px 5px 0px 5px;
+    text-decoration: underline;
+}
+.saved-query-run-link a, .saved-query-run-link a:hover, .saved-query-run-link a:visited, 
+{ 
+    color: #009;
+}
+.saved-query-description
+{
+    padding: 5px;    
+}
+.little-delete-icon
+{
+    display: inline-block;
+    margin-right: 12px;
+    cursor: pointer;
+}
+#saved-query-name
+{
+    font-weight: bold;
+}
+#results-count
+{
+    margin-bottom: 15px;
+}
+
+#login
+{
+    width: 200px;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;   
+}
+#login input[type=submit]
+{
+    display:block;
+    margin: auto;
+    margin-top: 20px;
+}
+#login-message
+{
+    width: 450px;
+    text-align: center;
+    color: #900;
+    margin: auto;
+    margin-bottom: 100px;
+}
